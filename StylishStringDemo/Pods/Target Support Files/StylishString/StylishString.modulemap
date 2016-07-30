@@ -1,0 +1,6 @@
+framework module StylishString {
+  umbrella header "StylishString-umbrella.h"
+
+  export *
+  module * { export * }
+}
