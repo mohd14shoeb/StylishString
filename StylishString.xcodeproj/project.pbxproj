@@ -12,7 +12,7 @@
 		DC381F4C1D4C60A80022FEAE /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC72969D1D4C66B10014747E /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7296AB1D4C67E00014747E /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC7296B41D4C682E0014747E /* StylishString-watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7296B31D4C682E0014747E /* StylishString-watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC7296B91D4C68B20014747E /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +35,6 @@
 		DC7296951D4C66030014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7296A31D4C672B0014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7296B11D4C682E0014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC7296B31D4C682E0014747E /* StylishString-watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StylishString-watchOS.h"; sourceTree = "<group>"; };
-		DC7296B51D4C682E0014747E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 			children = (
 				DC381F311D4C5F570022FEAE /* StylishString */,
 				DC381F3D1D4C5F580022FEAE /* StylishStringTests */,
-				DC7296B21D4C682E0014747E /* StylishString-watchOS */,
 				DC381F301D4C5F570022FEAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,15 +116,6 @@
 			path = StylishStringTests;
 			sourceTree = "<group>";
 		};
-		DC7296B21D4C682E0014747E /* StylishString-watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				DC7296B31D4C682E0014747E /* StylishString-watchOS.h */,
-				DC7296B51D4C682E0014747E /* Info.plist */,
-			);
-			path = "StylishString-watchOS";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -159,7 +147,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC7296B41D4C682E0014747E /* StylishString-watchOS.h in Headers */,
+				DC7296B91D4C68B20014747E /* StylishString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
