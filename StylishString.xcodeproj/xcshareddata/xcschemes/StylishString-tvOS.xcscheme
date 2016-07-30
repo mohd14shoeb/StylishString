@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC7296A21D4C672B0014747E"
-               BuildableName = "StylishString-tvOS.framework"
+               BuildableName = "StylishString.framework"
                BlueprintName = "StylishString-tvOS"
                ReferencedContainer = "container:StylishString.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC7296A21D4C672B0014747E"
-            BuildableName = "StylishString-tvOS.framework"
+            BuildableName = "StylishString.framework"
             BlueprintName = "StylishString-tvOS"
             ReferencedContainer = "container:StylishString.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC7296A21D4C672B0014747E"
-            BuildableName = "StylishString-tvOS.framework"
+            BuildableName = "StylishString.framework"
             BlueprintName = "StylishString-tvOS"
             ReferencedContainer = "container:StylishString.xcodeproj">
          </BuildableReference>
