@@ -1,0 +1,14 @@
+PODS:
+  - StylishString (0.0.1)
+
+DEPENDENCIES:
+  - StylishString (from `../`)
+
+EXTERNAL SOURCES:
+  StylishString:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StylishString: 264e510ee82a08509d6790c8eb3cb25f7c769423
+
+COCOAPODS: 0.39.0

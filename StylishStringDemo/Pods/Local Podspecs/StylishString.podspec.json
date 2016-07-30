@@ -1,0 +1,27 @@
+{
+  "name": "StylishString",
+  "version": "0.0.1",
+  "summary": "A stylish library for creating NSAttributedStrings",
+  "description": "A stylish library for creating NSAttributedStrings",
+  "homepage": "https://github.com/hkellaway/StylishString",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Harlan Kellaway": "hello@harlankellaway.com"
+  },
+  "social_media_url": "http://twitter.com/HarlanKellaway",
+  "source": {
+    "git": "https://github.com/hkellaway/StylishString.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "requires_arc": true,
+  "source_files": "Source/*.{swift}"
+}
