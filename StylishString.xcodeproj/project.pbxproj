@@ -34,7 +34,7 @@
 		DC381F4A1D4C60A80022FEAE /* StylishString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StylishString.h; path = Source/StylishString.h; sourceTree = SOURCE_ROOT; };
 		DC7296951D4C66030014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7296A31D4C672B0014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC7296B11D4C682E0014747E /* StylishString-watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "StylishString-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7296B11D4C682E0014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7296B31D4C682E0014747E /* StylishString-watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StylishString-watchOS.h"; sourceTree = "<group>"; };
 		DC7296B51D4C682E0014747E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +96,7 @@
 				DC381F391D4C5F580022FEAE /* StylishStringTests.xctest */,
 				DC7296951D4C66030014747E /* StylishString.framework */,
 				DC7296A31D4C672B0014747E /* StylishString.framework */,
-				DC7296B11D4C682E0014747E /* StylishString-watchOS.framework */,
+				DC7296B11D4C682E0014747E /* StylishString.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 			);
 			name = "StylishString-watchOS";
 			productName = "StylishString-watchOS";
-			productReference = DC7296B11D4C682E0014747E /* StylishString-watchOS.framework */;
+			productReference = DC7296B11D4C682E0014747E /* StylishString.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -609,11 +609,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "StylishString-watchOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.harlankellaway.StylishString-watchOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -629,11 +626,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "StylishString-watchOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.harlankellaway.StylishString-watchOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
