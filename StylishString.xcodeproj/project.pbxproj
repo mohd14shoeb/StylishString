@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC381F331D4C5F570022FEAE /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F321D4C5F570022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC381F3A1D4C5F580022FEAE /* StylishString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC381F2F1D4C5F570022FEAE /* StylishString.framework */; };
 		DC381F3F1D4C5F580022FEAE /* StylishStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC381F3E1D4C5F580022FEAE /* StylishStringTests.swift */; };
+		DC381F4B1D4C60A80022FEAE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC381F491D4C60A80022FEAE /* Info.plist */; };
+		DC381F4C1D4C60A80022FEAE /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,11 @@
 
 /* Begin PBXFileReference section */
 		DC381F2F1D4C5F570022FEAE /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC381F321D4C5F570022FEAE /* StylishString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StylishString.h; sourceTree = "<group>"; };
-		DC381F341D4C5F580022FEAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC381F391D4C5F580022FEAE /* StylishStringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StylishStringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC381F3E1D4C5F580022FEAE /* StylishStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylishStringTests.swift; sourceTree = "<group>"; };
 		DC381F401D4C5F580022FEAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC381F491D4C60A80022FEAE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		DC381F4A1D4C60A80022FEAE /* StylishString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StylishString.h; path = Source/StylishString.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +72,8 @@
 		DC381F311D4C5F570022FEAE /* StylishString */ = {
 			isa = PBXGroup;
 			children = (
-				DC381F321D4C5F570022FEAE /* StylishString.h */,
-				DC381F341D4C5F580022FEAE /* Info.plist */,
+				DC381F491D4C60A80022FEAE /* Info.plist */,
+				DC381F4A1D4C60A80022FEAE /* StylishString.h */,
 			);
 			path = StylishString;
 			sourceTree = "<group>";
@@ -93,7 +94,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC381F331D4C5F570022FEAE /* StylishString.h in Headers */,
+				DC381F4C1D4C60A80022FEAE /* StylishString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC381F4B1D4C60A80022FEAE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +380,7 @@
 				DC381F451D4C5F580022FEAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC381F461D4C5F580022FEAE /* Build configuration list for PBXNativeTarget "StylishStringTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +389,7 @@
 				DC381F481D4C5F580022FEAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
