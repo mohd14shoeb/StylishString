@@ -10,7 +10,7 @@
 		DC381F3A1D4C5F580022FEAE /* StylishString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC381F2F1D4C5F570022FEAE /* StylishString.framework */; };
 		DC381F3F1D4C5F580022FEAE /* StylishStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC381F3E1D4C5F580022FEAE /* StylishStringTests.swift */; };
 		DC381F4C1D4C60A80022FEAE /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC7296981D4C66030014747E /* StylishString-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7296971D4C66030014747E /* StylishString-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC72969D1D4C66B10014747E /* StylishString.h in Headers */ = {isa = PBXBuildFile; fileRef = DC381F4A1D4C60A80022FEAE /* StylishString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +31,6 @@
 		DC381F491D4C60A80022FEAE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 		DC381F4A1D4C60A80022FEAE /* StylishString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StylishString.h; path = Source/StylishString.h; sourceTree = SOURCE_ROOT; };
 		DC7296951D4C66030014747E /* StylishString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StylishString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC7296971D4C66030014747E /* StylishString-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StylishString-macOS.h"; sourceTree = "<group>"; };
-		DC7296991D4C66030014747E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 			children = (
 				DC381F311D4C5F570022FEAE /* StylishString */,
 				DC381F3D1D4C5F580022FEAE /* StylishStringTests */,
-				DC7296961D4C66030014747E /* StylishString-macOS */,
 				DC381F301D4C5F570022FEAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,15 +96,6 @@
 			path = StylishStringTests;
 			sourceTree = "<group>";
 		};
-		DC7296961D4C66030014747E /* StylishString-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				DC7296971D4C66030014747E /* StylishString-macOS.h */,
-				DC7296991D4C66030014747E /* Info.plist */,
-			);
-			path = "StylishString-macOS";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -123,7 +111,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC7296981D4C66030014747E /* StylishString-macOS.h in Headers */,
+				DC72969D1D4C66B10014747E /* StylishString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
