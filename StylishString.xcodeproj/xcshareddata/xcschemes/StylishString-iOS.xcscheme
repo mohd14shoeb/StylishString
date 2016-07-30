@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC381F2E1D4C5F570022FEAE"
-               BuildableName = "StylishString.framework"
-               BlueprintName = "StylishString"
+               BuildableName = "StylishString-iOS.framework"
+               BlueprintName = "StylishString-iOS"
                ReferencedContainer = "container:StylishString.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC381F2E1D4C5F570022FEAE"
-            BuildableName = "StylishString.framework"
-            BlueprintName = "StylishString"
+            BuildableName = "StylishString-iOS.framework"
+            BlueprintName = "StylishString-iOS"
             ReferencedContainer = "container:StylishString.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC381F2E1D4C5F570022FEAE"
-            BuildableName = "StylishString.framework"
-            BlueprintName = "StylishString"
+            BuildableName = "StylishString-iOS.framework"
+            BlueprintName = "StylishString-iOS"
             ReferencedContainer = "container:StylishString.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,8 +83,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC381F2E1D4C5F570022FEAE"
-            BuildableName = "StylishString.framework"
-            BlueprintName = "StylishString"
+            BuildableName = "StylishString-iOS.framework"
+            BlueprintName = "StylishString-iOS"
             ReferencedContainer = "container:StylishString.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
