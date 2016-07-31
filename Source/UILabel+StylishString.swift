@@ -34,7 +34,7 @@ extension UILabel {
      - parameter attributes: Attributes.
      - parameter adapter:    Adapter for translating StringAttribute list to attribute dictionary.
      */
-    public func styleText(text: String, attributes: [StringAttribute], adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+    public func styleText(text: String, attributes: StringAttributes, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
         styleSubstring(text, ofText: text, attributes: attributes, adapter: adapter)
     }
     
@@ -47,7 +47,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      */
-    public func styleSubstring(substring: String, ofText text: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+    public func styleSubstring(substring: String, ofText text: String, attributes: StringAttributes, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
         guard let _ = attributedText  else {
             return
         }
@@ -75,7 +75,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      */
-    public func styleSubstring(substring: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+    public func styleSubstring(substring: String, attributes: StringAttributes, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
         guard let _ = attributedText  else {
             return
         }
@@ -87,7 +87,7 @@ extension UILabel {
             return
         }
         
-        let attributes = adapter.dictionary(from: attributes)
+        let attributes = adapter.dictionary(from: attributes.values)
         
         attributedString.addAttributes(
             attributes,

@@ -40,21 +40,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let text = "Hello World"
-        
-        label.styleText(text, attributes:
+        let baseAttributes = StringAttributes {
             [
                 .Color(value: UIColor.greenColor()),
                 .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
                 .Kern(value: 10)
             ]
-        )
+        }
         
-        label.styleSubstring("World", attributes:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
+        label.styleText(text, attributes: baseAttributes)
+
+        label.styleSubstring("World", attributes: baseAttributes.update(with:
+            .Color(value: UIColor.blueColor())
+            )
         )
     }
 
