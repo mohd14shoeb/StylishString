@@ -36,3 +36,59 @@ public enum StringAttribute {
     case Kern(value: CGFloat)
     
 }
+
+// MARK: - Instance functions
+
+extension StringAttribute {
+    
+    /**
+     Whether current attribute is the same type as another.
+     
+     Note: Value is not considered when determining sameness.
+     
+     - returns: True when types match, false oterhwise.
+     */
+    func isSameType(asOther other: StringAttribute) -> Bool {
+        switch (self, other) {
+        case (.Color, .Color),
+             (.Font, Font),
+             (.Kern, .Kern):
+            return true
+        default:
+            return false
+        }
+    }
+    
+}
+
+// MARK: - Protocol conformance
+
+// MARK: Equatable
+
+extension StringAttribute: Equatable {
+    
+}
+
+/**
+ Evaluates whether two StringAttribute types are equal.
+ 
+ Note: Both type and values are considered when determining equality.
+ 
+ - returns: True when equal, false otherwise.
+ */
+public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
+    guard lhs.isSameType(asOther: rhs) else {
+        return false
+    }
+    
+    switch (lhs, rhs) {
+    case (.Color(let value1), .Color(let value2)):
+        return value1 == value2
+    case (.Font(let value1), .Font(let value2)):
+        return value1 == value2
+    case (.Kern(let value1), .Kern(let value2)):
+        return value1 == value2
+    default:
+        return false
+    }
+}

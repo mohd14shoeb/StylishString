@@ -91,4 +91,48 @@ public struct StringAttributes {
         self.init(value: createAttributes())
     }
     
+    // MARK: - Instance functions
+    
+    /**
+     Returns a new instance with the result of updating values with
+     the provided attribute.
+     
+     If an attribute of the same type already exists within values,
+     it is replaced.
+     
+     - parameter attribute: Attribute to update with.
+     
+     - returns: New instance.
+     */
+    public func update(with attribute: StringAttribute) -> StringAttributes {
+        return update(with: [attribute])
+    }
+    
+    /**
+     Returns a new instance with the result of updating values with
+     the provided attributes.
+     
+     If an attribute of the same type already exists within values,
+     it is replaced.
+     
+     - parameter attribute: Attribute to update with.
+     
+     - returns: New instance.
+     */
+    public func update(with attributes: [StringAttribute]) -> StringAttributes {
+        var newValues = values
+        
+        attributes.forEach() { attribute in
+            let indexOfKey = newValues.indexOf { attribute.isSameType(asOther: $0) }
+            
+            if let index = indexOfKey {
+                newValues.removeAtIndex(index)
+            }
+        }
+        
+        newValues.appendContentsOf(attributes)
+        
+        return StringAttributes { newValues }
+    }
+    
 }
