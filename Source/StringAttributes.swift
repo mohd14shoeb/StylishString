@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  StringAttributes.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,39 +23,25 @@
 // THE SOFTWARE.
 //
 
-import StylishString
-import UIKit
-
-class ViewController: UIViewController {
+/// Data structure wrapping a list of StringAttribute.
+public struct StringAttributes {
     
     // MARK: - Properties
     
-    // MARK: Private properties
+    /// Values.
+    let values: [StringAttribute]
     
-    @IBOutlet private weak var label: UILabel!
+    // MARK: - Init/Deinit
     
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let text = "Hello World"
-        
-        label.styleText(text, attributes: StringAttributes(values:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ])
-        )
-        
-        label.styleSubstring("World", attributes: StringAttributes(values:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ])
-        )
+    /**
+     Creates new from provided values.
+     
+     - parameter values: Values.
+     
+     - returns: New instance.
+     */
+    public init(values: [StringAttribute]) {
+        self.values = values
     }
-
+    
 }
