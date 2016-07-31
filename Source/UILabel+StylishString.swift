@@ -28,7 +28,7 @@ import UIKit
 extension UILabel {
     
     /**
-     Sets text for label with provided attributes applied.
+     Sets attributedText and styles with provided attributes.
      
      - parameter text:       Text.
      - parameter attributes: Attributes.
@@ -39,7 +39,7 @@ extension UILabel {
     }
     
     /**
-     Sets substring text for label with provided attributes applied.
+     Sets attributedText and styles substring with provided attributes.
      
      - parameter substring:     Substring.
      - parameter text:          Text.
@@ -48,7 +48,39 @@ extension UILabel {
      - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      */
     public func styleSubstring(substring: String, ofText text: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+        guard let _ = attributedText  else {
+            return
+        }
+        
         let attributedString = NSMutableAttributedString(string: text)
+        
+        if attributedText!.string != text {
+            attributedText = attributedString
+        }
+        
+        styleSubstring(substring, attributes: attributes, searchOptions: searchOptions, adapter: adapter)
+    }
+    
+    /**
+     Styles substring of attributedText with provided attributes.
+     
+     Using this function assumes that attributedText is already
+     set to the desired value. This may not be the case if Label text is defaulting
+     to a Storyboard value which does not reflect the desired text value at run-time. 
+     If the attributedText is not known to be set, use 
+     styleSubstring(_:ofText:attributes:searchOptions:adatper) instead.
+     
+     - parameter substring:     Substring.
+     - parameter attributes:    Attributes.
+     - parameter searchOptions: Options used when searching for substring.
+     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
+     */
+    public func styleSubstring(substring: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+        guard let _ = attributedText  else {
+            return
+        }
+        
+        let attributedString = NSMutableAttributedString(string: attributedText!.string)
         let range = attributedString.mutableString.rangeOfString(substring, options: searchOptions)
         
         guard range.location != NSNotFound else {
