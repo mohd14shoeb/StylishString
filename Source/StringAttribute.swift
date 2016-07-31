@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  StringAttribute.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,39 +23,16 @@
 // THE SOFTWARE.
 //
 
-import StylishString
-import UIKit
-
-class ViewController: UIViewController {
+/// String attribute.
+public enum StringAttribute {
     
-    // MARK: - Properties
+    /// Color.
+    case Color(value: UIColor)
     
-    // MARK: Private properties
+    /// Font.
+    case Font(value: UIFont)
     
-    @IBOutlet private weak var label: UILabel!
+    /// Kern.
+    case Kern(value: CGFloat)
     
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let text = "Hello World"
-        
-        label.styleText(text, attributes:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-        
-        label.styleSubstring("World", attributes:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-    }
-
 }

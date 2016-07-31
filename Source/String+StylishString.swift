@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  String+StylishString.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,39 +23,45 @@
 // THE SOFTWARE.
 //
 
-import StylishString
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+extension String {
     
-    // MARK: - Properties
-    
-    // MARK: Private properties
-    
-    @IBOutlet private weak var label: UILabel!
-    
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /**
+     Substring of string staring from provided index until end.
+     
+     - parameter index: Index to start substring from.
+     
+     - returns: Substring.
+     */
+    internal func substring(fromIndex index: Int) -> String {
+        let convertedString = self as NSString
         
-        let text = "Hello World"
-        
-        label.styleText(text, attributes:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-        
-        label.styleSubstring("World", attributes:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
+        return convertedString.substringFromIndex(index)
     }
-
+    
+    /**
+     Whether the current string has any content before the provided
+     range.
+     
+     - parameter range: Range.
+     
+     - returns: True when string has content before range, false otherwise.
+     */
+    internal func hasContent(before range: NSRange) -> Bool {
+        return !range.doesStartFirstLocation()
+    }
+    
+    /**
+     Whether the current string has any content after the provided
+     range.
+     
+     - parameter range: Range.
+     
+     - returns: True when string has content after range, false otherwise.
+     */
+    internal func hasContent(after range: NSRange) -> Bool {
+        return (range.location + range.length) != characters.count
+    }
+    
 }

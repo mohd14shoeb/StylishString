@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  StringAttributeAdapter.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,39 +23,36 @@
 // THE SOFTWARE.
 //
 
-import StylishString
-import UIKit
-
-class ViewController: UIViewController {
+/// Adapter for translating between StringAttribute data and other types.
+public protocol StringAttributeAdapter {
     
-    // MARK: - Properties
+    /**
+     Creates an attributes dictionary from provided list of StringAttribute.
+     
+     - parameter attributes: StringAttribute list.
+     
+     - returns: Dictionary.
+     */
+    func dictionary(from attributes: [StringAttribute]) -> [String : AnyObject]
     
-    // MARK: Private properties
+    /**
+     Associated key in Foundation for provided attribute.
+     
+     For example, the Font attribute has the associated key NSFontAttributeName.
+     
+     - parameter attribute: StringAttribute.
+     
+     - returns: Key.
+     */
+    func key(forAttribute attribute: StringAttribute) -> String
     
-    @IBOutlet private weak var label: UILabel!
+    /**
+     Value for the attribute instance.
+     
+     - parameter attribute: StringAttribute.
+     
+     - returns: Value.
+     */
+    func value(forAttribute attribute: StringAttribute) -> AnyObject
     
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let text = "Hello World"
-        
-        label.styleText(text, attributes:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-        
-        label.styleSubstring("World", attributes:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-    }
-
 }

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  NSAttributedString+StylishString.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,39 +23,22 @@
 // THE SOFTWARE.
 //
 
-import StylishString
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+extension NSAttributedString {
     
-    // MARK: - Properties
-    
-    // MARK: Private properties
-    
-    @IBOutlet private weak var label: UILabel!
-    
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /**
+     Returns the result of appending a provided NSAttributedString to
+     the current NSAttributedString.
+     
+     - returns: NSAttributedString.
+     */
+    internal func append(other: NSAttributedString) -> NSAttributedString {
+        let fullAttributedString = NSMutableAttributedString(attributedString: self)
         
-        let text = "Hello World"
+        fullAttributedString.appendAttributedString(other)
         
-        label.styleText(text, attributes:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
-        
-        label.styleSubstring("World", attributes:
-            [
-                .Color(value: UIColor.blueColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        )
+        return fullAttributedString
     }
-
+    
 }
