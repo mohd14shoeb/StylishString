@@ -34,7 +34,8 @@ public struct StringAttributes {
     // MARK: - Init/Deinit
     
     /**
-     Creates new from provided values.
+     Creates new instance  from provided values.
+     Designated initializer.
      
      - parameter values: Values.
      
@@ -42,6 +43,52 @@ public struct StringAttributes {
      */
     public init(values: [StringAttribute]) {
         self.values = values
+    }
+    
+    /**
+     Convenience initializer for creating an instance from
+     a single attribute.
+     
+     - parameter values: Values.
+     
+     - returns: New instance.
+     */
+    public init(value: StringAttribute) {
+        self.values = [value]
+    }
+    
+    /**
+     Convenience initializer for creating an instance with
+     an empty list of values.
+     
+     - returns: New instance.
+     */
+    public init() {
+        self.init(values: [])
+    }
+    
+    /**
+     Convenience intializer for creating an instance from a
+     function that returns a list of values.
+     
+     - parameter createAttributes: Function returning a list of values.
+     
+     - returns: New instance.
+     */
+    public init(@noescape _ createAttributes: () -> [StringAttribute]) {
+        self.init(values: createAttributes())
+    }
+
+    /**
+     Convenience intializer for creating an instance from a
+     function that returns a single value.
+     
+     - parameter createAttributes: Function returning a single value.
+     
+     - returns: New instance.
+     */
+    public init(@noescape _ createAttributes: () -> StringAttribute) {
+        self.init(value: createAttributes())
     }
     
 }
