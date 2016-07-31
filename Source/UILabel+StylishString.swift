@@ -94,7 +94,62 @@ extension UILabel {
             range: range
         )
         
-        attributedText = attributedString
+        let attributedSubstring = attributedString.attributedSubstringFromRange(range)
+        var finalAttributedString = attributedSubstring
+        
+        if let beforeRange = rangeBefore(range: range, inString: attributedString.string) {
+            let beforeAttributedString = attributedText!.attributedSubstringFromRange(beforeRange)
+            
+            finalAttributedString = concatenate(beforeAttributedString, withOther: finalAttributedString)
+        }
+        
+        if let afterRange = rangeAfter(range: range, inString: attributedString.string) {
+            let afterAttributedString = attributedText!.attributedSubstringFromRange(afterRange)
+            
+            finalAttributedString = concatenate(finalAttributedString, withOther: afterAttributedString)
+        }
+        
+        attributedText = finalAttributedString
+    }
+    
+    // MARK: - Private functions
+    
+    private func rangeBefore(range range: NSRange, inString string: String) -> NSRange? {
+        guard range.location != 0 else {
+            return nil
+        }
+        
+        let head = substring(ofString: string, fromIndex: range.location)
+        
+        return NSMakeRange(0, string.characters.count - head.characters.count)
+    }
+    
+    private func rangeAfter(range range: NSRange, inString string: String) -> NSRange? {
+        guard doesString(string, haveContentAfterRange: range) else {
+            return nil
+        }
+        
+        let startIndex = range.location + range.length
+        
+        return NSMakeRange(startIndex, string.characters.count - startIndex)
+    }
+    
+    private func doesString(string: String, haveContentAfterRange range: NSRange) -> Bool {
+        return (range.location + range.length) != string.characters.count
+    }
+    
+    private func substring(ofString string: String, fromIndex index: Int) -> String {
+        let convertedString = string as NSString
+        
+        return convertedString.substringFromIndex(index)
+    }
+    
+    private func concatenate(attributedString: NSAttributedString, withOther other: NSAttributedString) -> NSAttributedString {
+        let concatenation = NSMutableAttributedString(attributedString: attributedString)
+        
+        concatenation.appendAttributedString(other)
+        
+        return concatenation
     }
     
 }
