@@ -94,62 +94,21 @@ extension UILabel {
             range: range
         )
         
-        let attributedSubstring = attributedString.attributedSubstringFromRange(range)
-        var finalAttributedString = attributedSubstring
+        var finalAttributedString = attributedString.attributedSubstringFromRange(range)
         
-        if let beforeRange = rangeBefore(range: range, inString: attributedString.string) {
-            let beforeAttributedString = attributedText!.attributedSubstringFromRange(beforeRange)
+        if let rangeOfContentBeforeSubstring = range.before(inString: attributedString.string) {
+            let beforeAttributedString = attributedText!.attributedSubstringFromRange(rangeOfContentBeforeSubstring)
             
-            finalAttributedString = concatenate(beforeAttributedString, withOther: finalAttributedString)
+            finalAttributedString = beforeAttributedString.append(finalAttributedString)
         }
         
-        if let afterRange = rangeAfter(range: range, inString: attributedString.string) {
-            let afterAttributedString = attributedText!.attributedSubstringFromRange(afterRange)
+        if let rangeOfContentAfterSubstring = range.after(inString: attributedString.string) {
+            let afterAttributedString = attributedText!.attributedSubstringFromRange(rangeOfContentAfterSubstring)
             
-            finalAttributedString = concatenate(finalAttributedString, withOther: afterAttributedString)
+            finalAttributedString = finalAttributedString.append(afterAttributedString)
         }
         
         attributedText = finalAttributedString
-    }
-    
-    // MARK: - Private functions
-    
-    private func rangeBefore(range range: NSRange, inString string: String) -> NSRange? {
-        guard range.location != 0 else {
-            return nil
-        }
-        
-        let head = substring(ofString: string, fromIndex: range.location)
-        
-        return NSMakeRange(0, string.characters.count - head.characters.count)
-    }
-    
-    private func rangeAfter(range range: NSRange, inString string: String) -> NSRange? {
-        guard doesString(string, haveContentAfterRange: range) else {
-            return nil
-        }
-        
-        let startIndex = range.location + range.length
-        
-        return NSMakeRange(startIndex, string.characters.count - startIndex)
-    }
-    
-    private func doesString(string: String, haveContentAfterRange range: NSRange) -> Bool {
-        return (range.location + range.length) != string.characters.count
-    }
-    
-    private func substring(ofString string: String, fromIndex index: Int) -> String {
-        let convertedString = string as NSString
-        
-        return convertedString.substringFromIndex(index)
-    }
-    
-    private func concatenate(attributedString: NSAttributedString, withOther other: NSAttributedString) -> NSAttributedString {
-        let concatenation = NSMutableAttributedString(attributedString: attributedString)
-        
-        concatenation.appendAttributedString(other)
-        
-        return concatenation
     }
     
 }
