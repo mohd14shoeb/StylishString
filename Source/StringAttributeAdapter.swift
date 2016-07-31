@@ -35,4 +35,24 @@ public protocol StringAttributeAdapter {
      */
     func dictionary(from attributes: [StringAttribute]) -> [String : AnyObject]
     
+    /**
+     Associated key in Foundation for provided attribute.
+     
+     For example, the Font attribute has the associated key NSFontAttributeName.
+     
+     - parameter attribute: StringAttribute.
+     
+     - returns: Key.
+     */
+    func key(forAttribute attribute: StringAttribute) -> String
+    
+    /**
+     Value for the attribute instance.
+     
+     - parameter attribute: StringAttribute.
+     
+     - returns: Value.
+     */
+    func value(forAttribute attribute: StringAttribute) -> AnyObject
+    
 }
