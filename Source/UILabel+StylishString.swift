@@ -35,12 +35,30 @@ extension UILabel {
      - parameter adapter:    Adapter for translating StringAttribute list to attribute dictionary.
      */
     public func setText(text: String, attributes: [StringAttribute], adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+        setSubstring(text, ofText: text, attributes: attributes, adapter: adapter)
+    }
+    
+    /**
+     Sets substring text for label with provided attributes applied.
+     
+     - parameter substring:     Substring.
+     - parameter text:          Text.
+     - parameter attributes:    Attributes.
+     - parameter searchOptions: Options used when searching for substring.
+     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
+     */
+    public func setSubstring(substring: String, ofText text: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
         let attributedString = NSMutableAttributedString(string: text)
         let attributes = adapter.dictionary(from: attributes)
+        let range = attributedString.mutableString.rangeOfString(substring, options: searchOptions)
+        
+        guard range.location != NSNotFound else {
+            return
+        }
         
         attributedString.addAttributes(
             attributes,
-            range: NSMakeRange(0, attributedString.length)
+            range: range
         )
         
         attributedText = attributedString

@@ -48,6 +48,14 @@ class ViewController: UIViewController {
                 .Kern(value: 10)
             ]
         )
+        
+        label.setSubstring("World", ofText: "Hello World", attributes:
+            [
+                .Color(value: UIColor.magentaColor()),
+                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
+                .Kern(value: 10)
+            ]
+        )
     }
 
     override func didReceiveMemoryWarning() {
