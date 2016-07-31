@@ -32,4 +32,45 @@ public enum StringAttribute {
     /// Font.
     case Font(value: UIFont)
     
+    /// Kern.
+    case Kern(value: CGFloat)
+    
+}
+
+// MARK: - Functions
+
+extension StringAttribute {
+    
+    /**
+     Associated key for use in attributes dictionary.
+     
+     - returns: Key.
+     */
+    public func key() -> String {
+        switch self {
+        case .Color:
+            return NSForegroundColorAttributeName
+        case .Font:
+            return NSFontAttributeName
+        case .Kern:
+            return NSKernAttributeName
+        }
+    }
+    
+    /**
+     Associated value for use in attributes dictionary.
+     
+     - returns: value.
+     */
+    public func value() -> AnyObject {
+        switch self {
+        case .Color(let value):
+            return value
+        case .Font(let value):
+            return value
+        case .Kern(let value):
+            return value
+        }
+    }
+ 
 }

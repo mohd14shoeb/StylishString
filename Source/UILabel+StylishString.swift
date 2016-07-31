@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  StylishStringDemo
+//  UILabel+StylishString.swift
+//  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
 //
@@ -23,38 +23,37 @@
 // THE SOFTWARE.
 //
 
-import StylishString
 import UIKit
 
-class ViewController: UIViewController {
+extension UILabel {
     
-    // MARK: - Properties
-    
-    // MARK: Private properties
-    
-    @IBOutlet private weak var label: UILabel!
-    
-    // MARK: - Override functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /**
+     Sets text for label with provided attributes applied.
+     
+     - parameter text:       Text.
+     - parameter attributes: Attributes.
+     */
+    public func setText(text: String, attributes: [StringAttribute]) {
+        let attributedString = NSMutableAttributedString(string: text)
         
-        let text = "Hello World"
-        
-        label.setText(text, attributes:
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
+        attributedString.addAttributes(
+            attributesDictionary(from: attributes),
+            range: NSMakeRange(0, attributedString.length)
         )
+        
+        attributedText = attributedString
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Private functions
+    
+    private func attributesDictionary(from attributes: [StringAttribute]) -> [String : AnyObject] {
+        var attributesDictionary: [String : AnyObject] = [:]
+        
+        attributes.forEach() {
+            attributesDictionary[$0.key()] = $0.value()
+        }
+        
+        return attributesDictionary
     }
-
-
+    
 }
-
