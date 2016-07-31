@@ -1,5 +1,5 @@
 //
-//  UILabel+StylishString.swift
+//  StringAttributeAdapter.swift
 //  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
@@ -23,27 +23,16 @@
 // THE SOFTWARE.
 //
 
-import UIKit
-
-extension UILabel {
+/// Adapter for translating between StringAttribute data and other types.
+public protocol StringAttributeAdapter {
     
     /**
-     Sets text for label with provided attributes applied.
+     Creates an attributes dictionary from provided list of StringAttribute.
      
-     - parameter text:       Text.
-     - parameter attributes: Attributes.
-     - parameter adapter:    Adapter for translating StringAttribute list to attribute dictionary.
+     - parameter attributes: StringAttribute list.
+     
+     - returns: Dictionary.
      */
-    public func setText(text: String, attributes: [StringAttribute], adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
-        let attributedString = NSMutableAttributedString(string: text)
-        let attributes = adapter.dictionary(from: attributes)
-        
-        attributedString.addAttributes(
-            attributes,
-            range: NSMakeRange(0, attributedString.length)
-        )
-        
-        attributedText = attributedString
-    }
+    func dictionary(from attributes: [StringAttribute]) -> [String : AnyObject]
     
 }
