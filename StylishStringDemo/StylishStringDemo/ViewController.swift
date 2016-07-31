@@ -51,18 +51,11 @@ class ViewController: UIViewController {
         
         label.styleSubstring("World", attributes:
             [
-                .Color(value: UIColor.magentaColor()),
+                .Color(value: UIColor.blueColor()),
                 .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
                 .Kern(value: 10)
             ]
         )
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
