@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         let text = "Hello World"
         
-        label.setText(text, attributes:
+        label.styleText(text, attributes:
             [
                 .Color(value: UIColor.greenColor()),
                 .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             ]
         )
         
-        label.setSubstring("World", ofText: "Hello World", attributes:
+        label.styleSubstring("World", ofText: "Hello World", attributes:
             [
                 .Color(value: UIColor.magentaColor()),
                 .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),

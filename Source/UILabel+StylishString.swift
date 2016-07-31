@@ -34,8 +34,8 @@ extension UILabel {
      - parameter attributes: Attributes.
      - parameter adapter:    Adapter for translating StringAttribute list to attribute dictionary.
      */
-    public func setText(text: String, attributes: [StringAttribute], adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
-        setSubstring(text, ofText: text, attributes: attributes, adapter: adapter)
+    public func styleText(text: String, attributes: [StringAttribute], adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+        styleSubstring(text, ofText: text, attributes: attributes, adapter: adapter)
     }
     
     /**
@@ -47,14 +47,15 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      */
-    public func setSubstring(substring: String, ofText text: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
+    public func styleSubstring(substring: String, ofText text: String, attributes: [StringAttribute], searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter()) {
         let attributedString = NSMutableAttributedString(string: text)
-        let attributes = adapter.dictionary(from: attributes)
         let range = attributedString.mutableString.rangeOfString(substring, options: searchOptions)
         
         guard range.location != NSNotFound else {
             return
         }
+        
+        let attributes = adapter.dictionary(from: attributes)
         
         attributedString.addAttributes(
             attributes,
