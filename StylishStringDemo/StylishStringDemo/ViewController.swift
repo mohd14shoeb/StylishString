@@ -32,28 +32,37 @@ class ViewController: UIViewController {
     
     // MARK: Private properties
     
-    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var topLabel: UILabel!
+    @IBOutlet private weak var bottomLabel: UILabel!
     
     // MARK: - Override functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let text = "Hello World"
-        let baseAttributes = StringAttributes {
-            [
-                .Color(value: UIColor.greenColor()),
-                .Font(value: UIFont(name: "Helvetica-Bold", size: 40)!),
-                .Kern(value: 10)
-            ]
-        }
+        // Attributes created via chaining
         
-        label.styleText(text, attributes: baseAttributes)
-
-        label.styleSubstring("World", attributes: baseAttributes.update(with:
-            .Color(value: UIColor.blueColor())
-            )
-        )
+        let attributes = StringAttributes()
+            .color(red: 0.0, green: 0.5, blue: 0.5, alpha: 1.0)
+            .font(name: "AvenirNext-Bold", size: 40)
+            .kern(value: 2)
+        
+        let substringAttributes = attributes
+            .update(with: .Color(value: UIColor.magentaColor()))
+        
+        topLabel.styleText("Hello World", attributes: attributes)
+        topLabel.styleSubstring("Hello", attributes: substringAttributes)
+        
+        print(attributes.toDictionary())
+        
+        // Attributes created in-line
+        
+        bottomLabel.styleText("Goobye World") {[
+            .Color(value: UIColor.redColor()),
+            .Font(value: UIFont.systemFontOfSize(30)),
+            .Kern(value: 15)
+        ]}
+        
     }
 
 }
