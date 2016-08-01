@@ -17,8 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIf-XV-q1S">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIf-XV-q1S" userLabel="Top Label">
+                                <rect key="frame" x="263" y="170" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koj-t0-vKY" userLabel="Bottom Label">
+                                <rect key="frame" x="249" y="291" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -26,12 +32,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Koj-t0-vKY" firstAttribute="top" secondItem="qIf-XV-q1S" secondAttribute="bottom" constant="100" id="CPc-xA-gpm"/>
                             <constraint firstItem="qIf-XV-q1S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CxU-xg-g9T"/>
+                            <constraint firstItem="qIf-XV-q1S" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="XjE-OY-Pa3"/>
                             <constraint firstItem="qIf-XV-q1S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kuI-oG-0FH"/>
+                            <constraint firstItem="Koj-t0-vKY" firstAttribute="centerX" secondItem="qIf-XV-q1S" secondAttribute="centerX" id="uuD-In-8d8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kuI-oG-0FH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="label" destination="qIf-XV-q1S" id="0Jk-av-dWE"/>
+                        <outlet property="bottomLabel" destination="Koj-t0-vKY" id="iN4-H8-J1F"/>
+                        <outlet property="topLabel" destination="qIf-XV-q1S" id="TLW-vZ-8R9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
