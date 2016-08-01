@@ -37,8 +37,11 @@ public struct StringAttributes {
     // MARK: - Init/Deinit
     
     /**
-     Creates new instance  from provided values and adapter.
+     Creates new instance from provided values and adapter.
      Designated initializer.
+     
+     - warning: If multiple values of the same type are added,
+     only the final value is kept.
      
      - parameter values:  Values.
      - parameter adapter: Adapter.
@@ -47,7 +50,7 @@ public struct StringAttributes {
      */
     public init(values: [StringAttribute], adapter: StringAttributeAdapter) {
         self.adapter = adapter
-        self.values = values
+        self.values = uniqeElements(from: values)
     }
     
     /**

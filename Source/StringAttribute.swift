@@ -92,3 +92,20 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
         return false
     }
 }
+
+// MARK: Hashable
+
+extension StringAttribute: Hashable {
+    
+    public var hashValue: Int {
+        switch self {
+        case .Color(let value):
+            return value.hashValue
+        case .Font(let value):
+            return value.hashValue
+        case .Kern(let value):
+            return Int(value)
+        }
+    }
+    
+}
