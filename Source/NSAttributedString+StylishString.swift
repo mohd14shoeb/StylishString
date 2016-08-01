@@ -34,11 +34,11 @@ extension NSAttributedString {
      - returns: NSAttributedString.
      */
     internal func append(other: NSAttributedString) -> NSAttributedString {
-        let fullAttributedString = NSMutableAttributedString(attributedString: self)
+        let attributedString = NSMutableAttributedString(attributedString: self)
         
-        fullAttributedString.appendAttributedString(other)
+        attributedString.appendAttributedString(other)
         
-        return fullAttributedString
+        return attributedString
     }
     
 }

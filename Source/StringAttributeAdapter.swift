@@ -56,3 +56,41 @@ public protocol StringAttributeAdapter {
     func value(forAttribute attribute: StringAttribute) -> AnyObject
     
 }
+
+// MARK: - Default implementations
+
+extension StringAttributeAdapter {
+    
+    public func dictionary(from attributes: [StringAttribute]) -> [String : AnyObject] {
+        var attributesDictionary: [String : AnyObject] = [:]
+        
+        attributes.forEach() {
+            attributesDictionary[key(forAttribute: $0)] = value(forAttribute: $0)
+        }
+        
+        return attributesDictionary
+    }
+    
+    public func key(forAttribute attribute: StringAttribute) -> String {
+        switch attribute {
+        case .Color:
+            return NSForegroundColorAttributeName
+        case .Font:
+            return NSFontAttributeName
+        case .Kern:
+            return NSKernAttributeName
+        }
+    }
+    
+    public func value(forAttribute attribute: StringAttribute) -> AnyObject {
+        switch attribute {
+        case .Color(let value):
+            return value
+        case .Font(let value):
+            return value
+        case .Kern(let value):
+            return value
+        }
+    }
+    
+}
