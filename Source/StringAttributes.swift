@@ -71,12 +71,12 @@ public struct StringAttributes {
      Convenience intializer for creating an instance from a
      function that returns a list of values.
      
-     - parameter createAttributes: Function returning a list of values.
+     - parameter attributeList: Function returning a list of values.
      
      - returns: New instance.
      */
-    public init(@noescape _ createAttributes: () -> [StringAttribute]) {
-        self.init(values: createAttributes())
+    public init(@noescape _ attributeList: () -> [StringAttribute]) {
+        self.init(values: attributeList())
     }
 
     /**
@@ -87,8 +87,8 @@ public struct StringAttributes {
      
      - returns: New instance.
      */
-    public init(@noescape _ createAttributes: () -> StringAttribute) {
-        self.init(value: createAttributes())
+    public init(@noescape _ attribute: () -> StringAttribute) {
+        self.init(value: attribute())
     }
     
     // MARK: - Instance functions
