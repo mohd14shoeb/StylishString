@@ -31,33 +31,30 @@ extension UILabel {
      Sets attributedText and styles with provided attribute.
      
      - parameter text:      Text.
-     - parameter adapter:   Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attribute: Function returning a single attribute.
      */
-    public func styleText(text: String, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attribute: () -> StringAttribute) {
-        styleText(text, adapter: adapter) { [ attribute() ] }
+    public func styleText(text: String, attribute: () -> StringAttribute) {
+        styleText(text) { [ attribute() ] }
     }
     
     /**
      Sets attributedText and styles with provided attributes.
      
      - parameter text:           Text.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleText(text: String, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributeList: () -> [StringAttribute]) {
-        styleText(text, adapter: adapter, attributes: StringAttributes { attributeList() })
+    public func styleText(text: String, attributeList: () -> [StringAttribute]) {
+        styleText(text, attributes: StringAttributes { attributeList() })
     }
     
     /**
      Sets attributedText and styles with provided attributes.
      
      - parameter text:       Text.
-     - parameter adapter:    Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributes: Attributes.
      */
-    public func styleText(text: String, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributes: StringAttributes) {
-        styleSubstring(text, ofText: text, adapter: adapter, attributes: attributes)
+    public func styleText(text: String, attributes: StringAttributes) {
+        styleSubstring(text, ofText: text, attributes: attributes)
     }
     
     /**
@@ -66,11 +63,10 @@ extension UILabel {
      - parameter substring:     Substring.
      - parameter text:          Text.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attribute:     Function returning a single attribute.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attribute: () -> StringAttribute) {
-        styleSubstring(substring, ofText: text, searchOptions: searchOptions, adapter: adapter) { [ attribute() ] }
+    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
+        styleSubstring(substring, ofText: text, searchOptions: searchOptions) { [ attribute() ] }
     }
     
     /**
@@ -79,11 +75,10 @@ extension UILabel {
      - parameter substring:     Substring.
      - parameter text:          Text.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributeList: () -> [StringAttribute]) {
-        styleSubstring(substring, ofText: text, searchOptions: searchOptions, adapter: adapter, attributes: StringAttributes { attributeList() })
+    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
+        styleSubstring(substring, ofText: text, searchOptions: searchOptions, attributes: StringAttributes { attributeList() })
     }
     
     /**
@@ -92,10 +87,9 @@ extension UILabel {
      - parameter substring:     Substring.
      - parameter text:          Text.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributes:    Attributes.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributes: StringAttributes) {
+    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
         guard let _ = attributedText  else {
             return
         }
@@ -106,7 +100,7 @@ extension UILabel {
             attributedText = attributedString
         }
         
-        styleSubstring(substring, searchOptions: searchOptions, adapter: adapter, attributes: attributes)
+        styleSubstring(substring, searchOptions: searchOptions, attributes: attributes)
     }
     
     /**
@@ -115,11 +109,10 @@ extension UILabel {
      - parameter substring:     Substring.
      - parameter text:          Text.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attribute:     Function returning a single attribute.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attribute: () -> StringAttribute) {
-        styleSubstring(substring, searchOptions: searchOptions, adapter: adapter) { [ attribute() ] }
+    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
+        styleSubstring(substring, searchOptions: searchOptions) { [ attribute() ] }
     }
     
     /**
@@ -128,11 +121,10 @@ extension UILabel {
      - parameter substring:     Substring.
      - parameter text:          Text.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributeList: () -> [StringAttribute]) {
-        styleSubstring(substring, searchOptions: searchOptions, adapter: adapter, attributes: StringAttributes { attributeList() })
+    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
+        styleSubstring(substring, searchOptions: searchOptions, attributes: StringAttributes { attributeList() })
     }
     
     /**
@@ -146,10 +138,9 @@ extension UILabel {
      
      - parameter substring:     Substring.
      - parameter searchOptions: Options used when searching for substring.
-     - parameter adapter:       Adapter for translating StringAttribute list to attribute dictionary.
      - parameter attributes:    Attributes.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, adapter: StringAttributeAdapter = DefaultStringAttributeAdapter(), attributes: StringAttributes) {
+    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
         guard let _ = attributedText  else {
             return
         }
@@ -161,10 +152,8 @@ extension UILabel {
             return
         }
         
-        let attributes = adapter.dictionary(from: attributes.values)
-        
         attributedString.addAttributes(
-            attributes,
+            attributes.toDictionary(),
             range: range
         )
         

@@ -28,21 +28,37 @@ public struct StringAttributes {
     
     // MARK: - Properties
     
+    /// Adapter.
+    let adapter: StringAttributeAdapter
+    
     /// Values.
     let values: [StringAttribute]
     
     // MARK: - Init/Deinit
     
     /**
-     Creates new instance  from provided values.
+     Creates new instance  from provided values and adapter.
      Designated initializer.
      
-     - parameter values: Values.
+     - parameter values:  Values.
+     - parameter adapter: Adapter.
+     
+     - returns: New instance.
+     */
+    public init(values: [StringAttribute], adapter: StringAttributeAdapter) {
+        self.adapter = adapter
+        self.values = values
+    }
+    
+    /**
+     Convenience initializer for creating an instance from a list of values.
+     
+     - parameter values:  Values.
      
      - returns: New instance.
      */
     public init(values: [StringAttribute]) {
-        self.values = values
+        self.init(values: values, adapter: DefaultStringAttributeAdapter())
     }
     
     /**
@@ -54,7 +70,7 @@ public struct StringAttributes {
      - returns: New instance.
      */
     public init(value: StringAttribute) {
-        self.values = [value]
+        self.init(values: [value])
     }
     
     /**
@@ -92,6 +108,15 @@ public struct StringAttributes {
     }
     
     // MARK: - Instance functions
+    
+    /**
+     Return attributes dictionary compatible with NSAttributedString API.
+     
+     - returns: Attributes dictionary.
+     */
+    public func toDictionary() -> [String : AnyObject] {
+        return adapter.dictionary(from: values)
+    }
     
     /**
      Returns a new instance with the result of updating values with
