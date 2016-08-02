@@ -73,22 +73,42 @@ extension StringAttributeAdapter {
     
     public func key(forAttribute attribute: StringAttribute) -> String {
         switch attribute {
+        case .BackgroundColor:
+            return NSBackgroundColorAttributeName
         case .Color:
             return NSForegroundColorAttributeName
         case .Font:
             return NSFontAttributeName
         case .Kern:
             return NSKernAttributeName
+        case .Ligature:
+            return NSLigatureAttributeName
+        case .ParagraphStyle:
+            return NSParagraphStyleAttributeName
+        case .StrikethroughColor:
+            return NSStrikethroughColorAttributeName
+        case .StrikethroughStyle:
+            return NSStrikethroughStyleAttributeName
         }
     }
     
     public func value(forAttribute attribute: StringAttribute) -> AnyObject {
         switch attribute {
+        case .BackgroundColor(let value):
+            return value
         case .Color(let value):
             return value
         case .Font(let value):
             return value
         case .Kern(let value):
+            return value
+        case .Ligature(let value):
+            return value
+        case .ParagraphStyle(let value):
+            return value
+        case .StrikethroughColor(let value):
+            return value
+        case .StrikethroughStyle(let value):
             return value
         }
     }

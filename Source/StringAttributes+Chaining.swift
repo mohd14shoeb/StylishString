@@ -27,21 +27,93 @@ import UIKit
 
 extension StringAttributes {
     
+    // MARK: - Background Color
+
+    /**
+     Returns a new instance with provided background color attribute.
+     
+     - parameter value: Color.
+     
+     - returns: New instance.
+     */
+    public func backgroundColor(value value: UIColor) -> StringAttributes {
+        return update(with: .BackgroundColor(value: value))
+    }
+    
+    /**
+     Returns a new instance with provided background color attribute.
+     
+     - parameter red:   Red component of the color, specified from 0.0 to 1.0.
+     - parameter green: Green component of the color object, specified from 0.0 to 1.0.
+     - parameter blue:  Blue component of the color, specified from 0.0 to 1.0.
+     - parameter alpha: Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func backgroundColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        
+        return update(with: .BackgroundColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided background color attribute.
+     
+     - parameter white: Grayscale value of the color, specified from 0.0 to 1.0.
+     - parameter alpha: Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func backgroundColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(white: white, alpha: alpha)
+        
+        return update(with: .BackgroundColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided background color attribute.
+     
+     - parameter hue:        Hue component of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter saturation: Saturation component of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter brightness: Brightness of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter alpha:      Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func backgroundColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+        
+        return update(with: .BackgroundColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided background color attribute.
+     
+     - parameter patternImage: Image to use when creating pattern color.
+     
+     - returns: New instance.
+     */
+    public func backgroundColor(patternImage patternImage: UIImage) -> StringAttributes {
+        let color = UIColor(patternImage: patternImage)
+        
+        return update(with: .BackgroundColor(value: color))
+    }
+    
     // MARK: - Color
     
     /**
-     Returns a new instance with provided color attribute.
+     Returns a new instance with provided background color attribute.
      
      - parameter value: Color.
      
      - returns: New instance.
      */
     public func color(value value: UIColor) -> StringAttributes {
-        return self.update(with: .Color(value: value))
+        return update(with: .Color(value: value))
     }
     
     /**
-     Returns a new instance with provided color attribute.
+     Returns a new instance with provided background color attribute.
      
      - parameter red:   Red component of the color, specified from 0.0 to 1.0.
      - parameter green: Green component of the color object, specified from 0.0 to 1.0.
@@ -53,11 +125,11 @@ extension StringAttributes {
     public func color(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
-        return self.update(with: .Color(value: color))
+        return update(with: .Color(value: color))
     }
     
     /**
-     Returns a new instance with provided color attribute.
+     Returns a new instance with provided background color attribute.
      
      - parameter white: Grayscale value of the color, specified from 0.0 to 1.0.
      - parameter alpha: Opacity value of the color, specified from 0.0 to 1.0.
@@ -67,11 +139,11 @@ extension StringAttributes {
     public func color(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(white: white, alpha: alpha)
         
-        return self.update(with: .Color(value: color))
+        return update(with: .Color(value: color))
     }
     
     /**
-     Returns a new instance with provided color attribute.
+     Returns a new instance with provided background color attribute.
      
      - parameter hue:        Hue component of the color in the HSB color space, specified from 0.0 to 1.0.
      - parameter saturation: Saturation component of the color in the HSB color space, specified from 0.0 to 1.0.
@@ -83,11 +155,11 @@ extension StringAttributes {
     public func color(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
-        return self.update(with: .Color(value: color))
+        return update(with: .Color(value: color))
     }
     
     /**
-     Returns a new instance with provided color attribute.
+     Returns a new instance with provided background color attribute.
      
      - parameter patternImage: Image to use when creating pattern color.
      
@@ -96,7 +168,7 @@ extension StringAttributes {
     public func color(patternImage patternImage: UIImage) -> StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
-        return self.update(with: .Color(value: color))
+        return update(with: .Color(value: color))
     }
     
     // MARK: - Font
@@ -116,7 +188,7 @@ extension StringAttributes {
             return self
         }
         
-        return self.update(with: .Font(value: font))
+        return update(with: .Font(value: font))
     }
     
     /**
@@ -130,7 +202,7 @@ extension StringAttributes {
     public func font(descriptor descriptor: UIFontDescriptor, size: CGFloat) -> StringAttributes {
         let font = UIFont(descriptor: descriptor, size: size)
         
-        return self.update(with: .Font(value: font))
+        return update(with: .Font(value: font))
     }
     
     // MARK: - Kern
@@ -143,7 +215,118 @@ extension StringAttributes {
      - returns: New instance.
      */
     public func kern(value value: CGFloat) -> StringAttributes {
-        return self.update(with: .Kern(value: value))
+        return update(with: .Kern(value: value))
+    }
+    
+    // MARK: - Ligature
+    
+    /**
+     Returns a new instance with provided kern attribute.
+     
+     - parameter value: Kern.
+     
+     - returns: New instance.
+     */
+    public func ligature(value value: NSNumber) -> StringAttributes {
+        return update(with: .Ligature(value: value))
+    }
+    
+    // MARK: - Paragraph Style
+    
+    /**
+     Returns a new instance with provided ligature attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func paragraphStyle(value value: NSParagraphStyle) -> StringAttributes {
+        return update(with: .ParagraphStyle(value: value))
+    }
+    
+    // MARK: - Strikethrough Color
+    
+    /**
+     Returns a new instance with provided strikethrough color attribute.
+     
+     - parameter value: Color.
+     
+     - returns: New instance.
+     */
+    public func strikethroughColor(value value: UIColor) -> StringAttributes {
+        return update(with: .StrikethroughColor(value: value))
+    }
+    
+    /**
+     Returns a new instance with provided strikethrough color attribute.
+     
+     - parameter red:   Red component of the color, specified from 0.0 to 1.0.
+     - parameter green: Green component of the color object, specified from 0.0 to 1.0.
+     - parameter blue:  Blue component of the color, specified from 0.0 to 1.0.
+     - parameter alpha: Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func strikethroughColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        
+        return update(with: .StrikethroughColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided strikethrough color attribute.
+     
+     - parameter white: Grayscale value of the color, specified from 0.0 to 1.0.
+     - parameter alpha: Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func strikethroughColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(white: white, alpha: alpha)
+        
+        return update(with: .StrikethroughColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided strikethrough color attribute.
+     
+     - parameter hue:        Hue component of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter saturation: Saturation component of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter brightness: Brightness of the color in the HSB color space, specified from 0.0 to 1.0.
+     - parameter alpha:      Opacity value of the color, specified from 0.0 to 1.0.
+     
+     - returns: New instance.
+     */
+    public func strikethroughColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+        let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+        
+        return update(with: .StrikethroughColor(value: color))
+    }
+    
+    /**
+     Returns a new instance with provided strikethrough color attribute.
+     
+     - parameter patternImage: Image to use when creating pattern color.
+     
+     - returns: New instance.
+     */
+    public func strikethroughColor(patternImage patternImage: UIImage) -> StringAttributes {
+        let color = UIColor(patternImage: patternImage)
+        
+        return update(with: .StrikethroughColor(value: color))
+    }
+    
+    // MARK: - Strikethrough Style
+    
+    /**
+     Returns a new instance with provided strikethrough style attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func strikethroughStyle(value value: NSNumber) -> StringAttributes {
+        return update(with: .StrikethroughStyle(value: value))
     }
     
 }

@@ -23,8 +23,13 @@
 // THE SOFTWARE.
 //
 
+import UIKit
+
 /// String attribute.
 public enum StringAttribute {
+    
+    /// Background color.
+    case BackgroundColor(value: UIColor)
     
     /// Color.
     case Color(value: UIColor)
@@ -34,6 +39,18 @@ public enum StringAttribute {
     
     /// Kern.
     case Kern(value: CGFloat)
+    
+    /// Ligature.
+    case Ligature(value: NSNumber)
+    
+    /// Paragraph style.
+    case ParagraphStyle(value: NSParagraphStyle)
+    
+    /// Strikethrough color.
+    case StrikethroughColor(value: UIColor)
+    
+    /// Strikethrough style.
+    case StrikethroughStyle(value: NSNumber)
     
 }
 
@@ -50,9 +67,14 @@ extension StringAttribute {
      */
     func isSameType(asOther other: StringAttribute) -> Bool {
         switch (self, other) {
-        case (.Color, .Color),
+        case (.BackgroundColor, .BackgroundColor),
+             (.Color, .Color),
              (.Font, Font),
-             (.Kern, .Kern):
+             (.Kern, .Kern),
+             (.Ligature, .Ligature),
+             (.ParagraphStyle, .ParagraphStyle),
+             (.StrikethroughColor, .StrikethroughColor),
+             (.StrikethroughStyle, .StrikethroughStyle):
             return true
         default:
             return false
@@ -82,11 +104,21 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
     }
     
     switch (lhs, rhs) {
+    case (.BackgroundColor(let value1), .BackgroundColor(let value2)):
+        return value1 == value2
     case (.Color(let value1), .Color(let value2)):
         return value1 == value2
     case (.Font(let value1), .Font(let value2)):
         return value1 == value2
     case (.Kern(let value1), .Kern(let value2)):
+        return value1 == value2
+    case (.Ligature(let value1), .Ligature(let value2)):
+        return value1 == value2
+    case (.ParagraphStyle(let value1), .ParagraphStyle(let value2)):
+        return value1 == value2
+    case (.StrikethroughColor(let value1), .StrikethroughColor(let value2)):
+        return value1 == value2
+    case (.StrikethroughStyle(let value1), .StrikethroughStyle(let value2)):
         return value1 == value2
     default:
         return false
@@ -99,12 +131,22 @@ extension StringAttribute: Hashable {
     
     public var hashValue: Int {
         switch self {
+        case .BackgroundColor(let value):
+            return value.hashValue
         case .Color(let value):
             return value.hashValue
         case .Font(let value):
             return value.hashValue
         case .Kern(let value):
             return Int(value)
+        case .Ligature(let value):
+            return value.hashValue
+        case .ParagraphStyle(let value):
+            return value.hashValue
+        case .StrikethroughColor(let value):
+            return value.hashValue
+        case .StrikethroughStyle(let value):
+            return value.hashValue
         }
     }
     
