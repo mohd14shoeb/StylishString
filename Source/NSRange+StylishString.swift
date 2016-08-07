@@ -25,7 +25,7 @@
 
 import Foundation
 
-extension NSRange {
+internal extension NSRange {
     
     /**
      Returns the range covering values before current range in
@@ -36,7 +36,7 @@ extension NSRange {
      - returns: Range if current range is not at beginning of string,
      nil otherwise.
      */
-    internal func before(inString string: String) -> NSRange? {
+    func before(inString string: String) -> NSRange? {
         guard string.hasContent(before: self) else {
             return nil
         }
@@ -55,7 +55,7 @@ extension NSRange {
      - returns: Range if current range is not at end of string,
      nil otherwise.
      */
-    internal func after(inString string: String) -> NSRange? {
+    func after(inString string: String) -> NSRange? {
         guard string.hasContent(after: self) else {
             return nil
         }
@@ -70,7 +70,7 @@ extension NSRange {
      
      - returns: Whether the current range starts at the first location.
      */
-    internal func doesStartFirstLocation() -> Bool {
+    func doesStartAtFirstLocation() -> Bool {
         return location == 0
     }
     

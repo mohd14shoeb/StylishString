@@ -25,7 +25,7 @@
 
 import Foundation
 
-extension String {
+internal extension String {
     
     /**
      Substring of string staring from provided index until end.
@@ -34,7 +34,7 @@ extension String {
      
      - returns: Substring.
      */
-    internal func substring(fromIndex index: Int) -> String {
+    func substring(fromIndex index: Int) -> String {
         let convertedString = self as NSString
         
         return convertedString.substringFromIndex(index)
@@ -48,8 +48,8 @@ extension String {
      
      - returns: True when string has content before range, false otherwise.
      */
-    internal func hasContent(before range: NSRange) -> Bool {
-        return !range.doesStartFirstLocation()
+    func hasContent(before range: NSRange) -> Bool {
+        return !range.doesStartAtFirstLocation()
     }
     
     /**
@@ -60,7 +60,7 @@ extension String {
      
      - returns: True when string has content after range, false otherwise.
      */
-    internal func hasContent(after range: NSRange) -> Bool {
+    func hasContent(after range: NSRange) -> Bool {
         return (range.location + range.length) != characters.count
     }
     

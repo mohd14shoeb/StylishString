@@ -1,5 +1,5 @@
 //
-//  NSAttributedString+StylishString.swift
+//  Global.swift
 //  StylishString
 //
 // Copyright (c) 2016 Harlan Kellaway
@@ -23,22 +23,18 @@
 // THE SOFTWARE.
 //
 
-import Foundation
-
-internal extension NSAttributedString {
+/**
+ Array of unique elements from provided sequence.
+ 
+ If duplicate elements are instroduced, only the final element is kept.
+ 
+ - returns: Array of unique elements from provided sequence.
+ */
+internal func uniqeElements<Sequence: SequenceType, Element: Hashable where Element == Sequence.Generator.Element>(from sequence: Sequence) -> [Element] {
+    // Adapted from: http://stackoverflow.com/questions/27624331/unique-values-of-array-in-swift
+    var seen: [Element : Bool] = [:]
     
-    /**
-     Returns the result of appending a provided NSAttributedString to
-     the current NSAttributedString.
-     
-     - returns: NSAttributedString.
-     */
-    func append(other: NSAttributedString) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(attributedString: self)
-        
-        attributedString.appendAttributedString(other)
-        
-        return attributedString
+    return sequence.filter { element in
+        seen.updateValue(true, forKey: element) == nil
     }
-    
 }

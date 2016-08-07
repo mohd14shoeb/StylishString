@@ -23,11 +23,25 @@
 // THE SOFTWARE.
 //
 
+import UIKit
+
 /// String attribute.
 public enum StringAttribute {
     
+    /// Attachment.
+    case Attachment(value: NSTextAttachment)
+    
+    /// Background color.
+    case BackgroundColor(value: UIColor)
+    
+    /// Baseline offset.
+    case BaselineOffset(value: NSNumber)
+    
     /// Color.
     case Color(value: UIColor)
+    
+    /// Expansion.
+    case Expansion(value: NSNumber)
     
     /// Font.
     case Font(value: UIFont)
@@ -35,11 +49,53 @@ public enum StringAttribute {
     /// Kern.
     case Kern(value: CGFloat)
     
+    /// Ligature.
+    case Ligature(value: NSNumber)
+    
+    /// Link.
+    case Link(value: NSURL)
+    
+    /// Obliqueness.
+    case Obliqueness(value: NSNumber)
+    
+    /// Paragraph style.
+    case ParagraphStyle(value: NSParagraphStyle)
+    
+    /// Shadow.
+    case Shadow(value: NSShadow)
+    
+    /// Strikethrough color.
+    case StrikethroughColor(value: UIColor)
+    
+    /// Strikethrough style.
+    case StrikethroughStyle(value: NSNumber)
+    
+    /// Stroke color.
+    case StrokeColor(value: UIColor)
+    
+    /// Stroke width.
+    case StrokeWidth(value: NSNumber)
+    
+    /// Text effect.
+    case TextEffect(value: String)
+    
+    /// Underline style.
+    case UnderlineStyle(value: NSNumber)
+    
+    /// Underline color.
+    case UnderlineColor(value: UIColor)
+    
+    /// Vertical glyph form.
+    case VerticalGlyphForm(value: NSNumber)
+    
+    /// Writing direction.
+    case WritingDirection(value: [NSNumber])
+    
 }
 
 // MARK: - Instance functions
 
-extension StringAttribute {
+public extension StringAttribute {
     
     /**
      Whether current attribute is the same type as another.
@@ -50,9 +106,27 @@ extension StringAttribute {
      */
     func isSameType(asOther other: StringAttribute) -> Bool {
         switch (self, other) {
-        case (.Color, .Color),
+        case (.Attachment, .Attachment),
+             (.BackgroundColor, .BackgroundColor),
+             (.BaselineOffset, .BaselineOffset),
+             (.Color, .Color),
+             (.Expansion, .Expansion),
              (.Font, Font),
-             (.Kern, .Kern):
+             (.Kern, .Kern),
+             (.Ligature, .Ligature),
+             (.Link, .Link),
+             (.Obliqueness, .Obliqueness),
+             (.ParagraphStyle, .ParagraphStyle),
+             (.Shadow, .Shadow),
+             (.StrikethroughColor, .StrikethroughColor),
+             (.StrikethroughStyle, .StrikethroughStyle),
+             (.StrokeColor, .StrokeColor),
+             (.StrokeWidth, .StrokeWidth),
+             (.TextEffect, .TextEffect),
+             (.UnderlineStyle, .UnderlineStyle),
+             (.UnderlineColor, .UnderlineColor),
+             (.VerticalGlyphForm, .VerticalGlyphForm),
+             (.WritingDirection, .WritingDirection):
             return true
         default:
             return false
@@ -82,13 +156,108 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
     }
     
     switch (lhs, rhs) {
+    case (.Attachment(let value1), .Attachment(let value2)):
+        return value1 == value2
+    case (.BackgroundColor(let value1), .BackgroundColor(let value2)):
+        return value1 == value2
+    case (.BaselineOffset(let value1), .BaselineOffset(let value2)):
+        return value1 == value2
     case (.Color(let value1), .Color(let value2)):
+        return value1 == value2
+    case (.Expansion(let value1), .Expansion(let value2)):
         return value1 == value2
     case (.Font(let value1), .Font(let value2)):
         return value1 == value2
     case (.Kern(let value1), .Kern(let value2)):
         return value1 == value2
+    case (.Ligature(let value1), .Ligature(let value2)):
+        return value1 == value2
+    case (.Link(let value1), .Link(let value2)):
+        return value1 == value2
+    case (.Obliqueness(let value1), .Obliqueness(let value2)):
+        return value1 == value2
+    case (.ParagraphStyle(let value1), .ParagraphStyle(let value2)):
+        return value1 == value2
+    case (.Shadow(let value1), .Shadow(let value2)):
+        return value1 == value2
+    case (.StrikethroughColor(let value1), .StrikethroughColor(let value2)):
+        return value1 == value2
+    case (.StrikethroughStyle(let value1), .StrikethroughStyle(let value2)):
+        return value1 == value2
+    case (.StrokeColor(let value1), .StrokeColor(let value2)):
+        return value1 == value2
+    case (.StrokeWidth(let value1), .StrokeWidth(let value2)):
+        return value1 == value2
+    case(.TextEffect(let value1), .TextEffect(let value2)):
+        return value1 == value2
+    case (.UnderlineStyle(let value1), .UnderlineStyle(let value2)):
+        return value1 == value2
+    case (.UnderlineColor(let value1), .UnderlineColor(let value2)):
+        return value1 == value2
+    case (.VerticalGlyphForm(let value1), .VerticalGlyphForm(let value2)):
+        return value1 == value2
+    case (.WritingDirection(let value1), .WritingDirection(let value2)):
+        return value1 == value2
     default:
         return false
     }
+}
+
+// MARK: Hashable
+
+extension StringAttribute: Hashable {
+    
+    public var hashValue: Int {
+        switch self {
+        case .Attachment(let value):
+            return value.hashValue
+        case .BackgroundColor(let value):
+            return value.hashValue
+        case .BaselineOffset(let value):
+            return value.hashValue
+        case .Color(let value):
+            return value.hashValue
+        case .Expansion(let value):
+            return value.hashValue
+        case .Font(let value):
+            return value.hashValue
+        case .Kern(let value):
+            return Int(value)
+        case .Ligature(let value):
+            return value.hashValue
+        case .Link(let value):
+            return value.hashValue
+        case .Obliqueness(let value):
+            return value.hashValue
+        case .ParagraphStyle(let value):
+            return value.hashValue
+        case .Shadow(let value):
+            return value.hashValue
+        case .StrikethroughColor(let value):
+            return value.hashValue
+        case .StrikethroughStyle(let value):
+            return value.hashValue
+        case .StrokeColor(let value):
+            return value.hashValue
+        case .StrokeWidth(let value):
+            return value.hashValue
+        case .TextEffect(let value):
+            return value.hashValue
+        case .UnderlineStyle(let value):
+            return value.hashValue
+        case .UnderlineColor(let value):
+            return value.hashValue
+        case .VerticalGlyphForm(let value):
+            return value.hashValue
+        case .WritingDirection(let value):
+            var hashValue = 0
+            
+            for number in value {
+                hashValue = hashValue ^ number.hashValue
+            }
+            
+            return hashValue
+        }
+    }
+    
 }
