@@ -25,7 +25,7 @@
 
 import UIKit
 
-extension StringAttributes {
+public extension StringAttributes {
     
     // MARK: - Attachment
     
@@ -36,7 +36,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func attachment(value value: NSTextAttachment) -> StringAttributes {
+    func attachment(value value: NSTextAttachment) -> StringAttributes {
         return update(with: .Attachment(value: value))
     }
     
@@ -49,7 +49,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func backgroundColor(value value: UIColor) -> StringAttributes {
+    func backgroundColor(value value: UIColor) -> StringAttributes {
         return update(with: .BackgroundColor(value: value))
     }
     
@@ -63,7 +63,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func backgroundColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func backgroundColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
         return backgroundColor(value: color)
@@ -77,7 +77,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func backgroundColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func backgroundColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(white: white, alpha: alpha)
         
         return backgroundColor(value: color)
@@ -93,7 +93,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func backgroundColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func backgroundColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
         return backgroundColor(value: color)
@@ -106,7 +106,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func backgroundColor(patternImage patternImage: UIImage) -> StringAttributes {
+    func backgroundColor(patternImage patternImage: UIImage) -> StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
         return backgroundColor(value: color)
@@ -121,7 +121,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func baselineOffset(value value: NSNumber) -> StringAttributes {
+    func baselineOffset(value value: NSNumber) -> StringAttributes {
         return update(with: .BaselineOffset(value: value))
     }
     
@@ -134,7 +134,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func color(value value: UIColor) -> StringAttributes {
+    func color(value value: UIColor) -> StringAttributes {
         return update(with: .Color(value: value))
     }
     
@@ -148,7 +148,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func color(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func color(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let newColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
         return color(value: newColor)
@@ -162,7 +162,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func color(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func color(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let newColor = UIColor(white: white, alpha: alpha)
         
         return color(value: newColor)
@@ -178,7 +178,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func color(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func color(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let newColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
         return color(value: newColor)
@@ -191,7 +191,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func color(patternImage patternImage: UIImage) -> StringAttributes {
+    func color(patternImage patternImage: UIImage) -> StringAttributes {
         let newColor = UIColor(patternImage: patternImage)
         
         return color(value: newColor)
@@ -206,7 +206,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func expansion(value value: NSNumber) -> StringAttributes {
+    func expansion(value value: NSNumber) -> StringAttributes {
         return update(with: .Expansion(value: value))
     }
     
@@ -219,7 +219,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func font(value value: UIFont) -> StringAttributes {
+    func font(value value: UIFont) -> StringAttributes {
         return update(with: .Font(value: value))
     }
     
@@ -233,7 +233,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func font(name name: String, size: CGFloat) -> StringAttributes {
+    func font(name name: String, size: CGFloat) -> StringAttributes {
         guard let newFont = UIFont(name: name, size: size) else {
             return self
         }
@@ -249,7 +249,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func font(descriptor descriptor: UIFontDescriptor, size: CGFloat) -> StringAttributes {
+    func font(descriptor descriptor: UIFontDescriptor, size: CGFloat) -> StringAttributes {
         let newFont = UIFont(descriptor: descriptor, size: size)
         
         return font(value: newFont)
@@ -264,7 +264,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func kern(value value: CGFloat) -> StringAttributes {
+    func kern(value value: CGFloat) -> StringAttributes {
         return update(with: .Kern(value: value))
     }
     
@@ -277,7 +277,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func ligature(value value: NSNumber) -> StringAttributes {
+    func ligature(value value: NSNumber) -> StringAttributes {
         return update(with: .Ligature(value: value))
     }
     
@@ -290,7 +290,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func link(value value: NSURL) -> StringAttributes {
+    func link(value value: NSURL) -> StringAttributes {
         return update(with: .Link(value: value))
     }
     
@@ -303,7 +303,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func link(string string: String) -> StringAttributes {
+    func link(string string: String) -> StringAttributes {
         guard let url = NSURL(string: string) else {
             return self
         }
@@ -321,7 +321,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func link(string string: String, relativeToURL baseURL: NSURL?) -> StringAttributes {
+    func link(string string: String, relativeToURL baseURL: NSURL?) -> StringAttributes {
         guard let url = NSURL(string: string, relativeToURL: baseURL) else {
             return self
         }
@@ -338,7 +338,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func obliqueness(value value: NSNumber) -> StringAttributes {
+    func obliqueness(value value: NSNumber) -> StringAttributes {
         return update(with: .Obliqueness(value: value))
     }
     
@@ -351,7 +351,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func paragraphStyle(value value: NSParagraphStyle) -> StringAttributes {
+    func paragraphStyle(value value: NSParagraphStyle) -> StringAttributes {
         return update(with: .ParagraphStyle(value: value))
     }
     
@@ -364,7 +364,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func shadow(value value: NSShadow) -> StringAttributes {
+    func shadow(value value: NSShadow) -> StringAttributes {
         return update(with: .Shadow(value: value))
     }
     
@@ -377,7 +377,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func shadow(offset offset: CGSize, blurRadius: CGFloat, color: AnyObject?) -> StringAttributes {
+    func shadow(offset offset: CGSize, blurRadius: CGFloat, color: AnyObject?) -> StringAttributes {
         let shadow = NSShadow()
         
         shadow.shadowOffset = offset
@@ -396,7 +396,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughColor(value value: UIColor) -> StringAttributes {
+    func strikethroughColor(value value: UIColor) -> StringAttributes {
         return update(with: .StrikethroughColor(value: value))
     }
     
@@ -410,7 +410,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strikethroughColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
         return strikethroughColor(value: color)
@@ -424,7 +424,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strikethroughColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(white: white, alpha: alpha)
         
         return strikethroughColor(value: color)
@@ -440,7 +440,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strikethroughColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
         return strikethroughColor(value: color)
@@ -453,7 +453,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughColor(patternImage patternImage: UIImage) -> StringAttributes {
+    func strikethroughColor(patternImage patternImage: UIImage) -> StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
         return strikethroughColor(value: color)
@@ -468,7 +468,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strikethroughStyle(value value: NSNumber) -> StringAttributes {
+    func strikethroughStyle(value value: NSNumber) -> StringAttributes {
         return update(with: .StrikethroughStyle(value: value))
     }
     
@@ -481,7 +481,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeColor(value value: UIColor) -> StringAttributes {
+    func strokeColor(value value: UIColor) -> StringAttributes {
         return update(with: .StrokeColor(value: value))
     }
     
@@ -495,7 +495,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strokeColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
         return strokeColor(value: color)
@@ -509,7 +509,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strokeColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(white: white, alpha: alpha)
         
         return strokeColor(value: color)
@@ -525,7 +525,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func strokeColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
         return strokeColor(value: color)
@@ -538,7 +538,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeColor(patternImage patternImage: UIImage) -> StringAttributes {
+    func strokeColor(patternImage patternImage: UIImage) -> StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
         return strokeColor(value: color)
@@ -553,7 +553,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func strokeWidth(value value: NSNumber) -> StringAttributes {
+    func strokeWidth(value value: NSNumber) -> StringAttributes {
         return update(with: .StrokeWidth(value: value))
     }
     
@@ -566,7 +566,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func textEffect(value value: String) -> StringAttributes {
+    func textEffect(value value: String) -> StringAttributes {
         return update(with: .TextEffect(value: value))
     }
     
@@ -579,7 +579,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineColor(value value: UIColor) -> StringAttributes {
+    func underlineColor(value value: UIColor) -> StringAttributes {
         return update(with: .UnderlineColor(value: value))
     }
     
@@ -593,7 +593,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func underlineColor(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
         return underlineColor(value: color)
@@ -607,7 +607,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func underlineColor(white white: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(white: white, alpha: alpha)
         
         return underlineColor(value: color)
@@ -623,7 +623,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
+    func underlineColor(hue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) -> StringAttributes {
         let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
         return underlineColor(value: color)
@@ -636,7 +636,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineColor(patternImage patternImage: UIImage) -> StringAttributes {
+    func underlineColor(patternImage patternImage: UIImage) -> StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
         return underlineColor(value: color)
@@ -651,7 +651,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func underlineStyle(value value: NSNumber) -> StringAttributes {
+    func underlineStyle(value value: NSNumber) -> StringAttributes {
         return update(with: .UnderlineStyle(value: value))
     }
     
@@ -664,7 +664,7 @@ extension StringAttributes {
      
      - returns: New instance.
      */
-    public func verticalGlyphForm(value value: NSNumber) -> StringAttributes {
+    func verticalGlyphForm(value value: NSNumber) -> StringAttributes {
         return update(with: .VerticalGlyphForm(value: value))
     }
     

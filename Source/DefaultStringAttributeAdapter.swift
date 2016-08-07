@@ -24,7 +24,7 @@
 //
 
 /// Default StringAttribute adapter.
-internal struct DefaultStringAttributeAdapter: StringAttributeAdapter {
+public struct DefaultStringAttributeAdapter: StringAttributeAdapter {
     
     public func dictionary(from attributes: [StringAttribute]) -> [String : AnyObject] {
         var attributesDictionary: [String : AnyObject] = [:]

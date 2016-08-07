@@ -25,7 +25,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
     /**
      Sets attributedText and styles with provided attribute.
@@ -33,7 +33,7 @@ extension UILabel {
      - parameter text:      Text.
      - parameter attribute: Function returning a single attribute.
      */
-    public func styleText(text: String, attribute: () -> StringAttribute) {
+    func styleText(text: String, attribute: () -> StringAttribute) {
         styleText(text) { [ attribute() ] }
     }
     
@@ -43,7 +43,7 @@ extension UILabel {
      - parameter text:           Text.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleText(text: String, attributeList: () -> [StringAttribute]) {
+    func styleText(text: String, attributeList: () -> [StringAttribute]) {
         styleText(text, attributes: StringAttributes { attributeList() })
     }
     
@@ -53,7 +53,7 @@ extension UILabel {
      - parameter text:       Text.
      - parameter attributes: Attributes.
      */
-    public func styleText(text: String, attributes: StringAttributes) {
+    func styleText(text: String, attributes: StringAttributes) {
         styleSubstring(text, ofText: text, attributes: attributes)
     }
     
@@ -65,7 +65,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attribute:     Function returning a single attribute.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
+    func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
         styleSubstring(substring, ofText: text, searchOptions: searchOptions) { [ attribute() ] }
     }
     
@@ -77,7 +77,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
+    func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
         styleSubstring(substring, ofText: text, searchOptions: searchOptions, attributes: StringAttributes { attributeList() })
     }
     
@@ -89,7 +89,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attributes:    Attributes.
      */
-    public func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
+    func styleSubstring(substring: String, ofText text: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
         guard let _ = attributedText  else {
             return
         }
@@ -111,7 +111,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attribute:     Function returning a single attribute.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
+    func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attribute: () -> StringAttribute) {
         styleSubstring(substring, searchOptions: searchOptions) { [ attribute() ] }
     }
     
@@ -123,7 +123,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attributeList: Function returning a list of attributes.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
+    func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributeList: () -> [StringAttribute]) {
         styleSubstring(substring, searchOptions: searchOptions, attributes: StringAttributes { attributeList() })
     }
     
@@ -140,7 +140,7 @@ extension UILabel {
      - parameter searchOptions: Options used when searching for substring.
      - parameter attributes:    Attributes.
      */
-    public func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
+    func styleSubstring(substring: String, searchOptions: NSStringCompareOptions = .CaseInsensitiveSearch, attributes: StringAttributes) {
         guard let _ = attributedText  else {
             return
         }

@@ -25,7 +25,7 @@
 
 import Foundation
 
-extension NSAttributedString {
+internal extension NSAttributedString {
     
     /**
      Returns the result of appending a provided NSAttributedString to
@@ -33,7 +33,7 @@ extension NSAttributedString {
      
      - returns: NSAttributedString.
      */
-    internal func append(other: NSAttributedString) -> NSAttributedString {
+    func append(other: NSAttributedString) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(attributedString: self)
         
         attributedString.appendAttributedString(other)

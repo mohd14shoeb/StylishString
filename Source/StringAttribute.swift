@@ -92,7 +92,7 @@ public enum StringAttribute {
 
 // MARK: - Instance functions
 
-extension StringAttribute {
+public extension StringAttribute {
     
     /**
      Whether current attribute is the same type as another.
