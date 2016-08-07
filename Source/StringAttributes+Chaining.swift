@@ -668,4 +668,17 @@ public extension StringAttributes {
         return update(with: .VerticalGlyphForm(value: value))
     }
     
+    // MARK: - Writing Direction
+    
+    /**
+     Returns a new instance with provided writing direction attribute.
+     
+     - parameter value:  NSNumber objects representing the nested levels of writing direction overrides, in order from outermost to innermost
+     
+     - returns: New instance.
+     */
+    func writingDirection(value value: [NSNumber]) -> StringAttributes {
+        return update(with: .WritingDirection(value: value))
+    }
+    
 }

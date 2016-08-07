@@ -88,6 +88,9 @@ public enum StringAttribute {
     /// Vertical glyph form.
     case VerticalGlyphForm(value: NSNumber)
     
+    /// Writing direction.
+    case WritingDirection(value: [NSNumber])
+    
 }
 
 // MARK: - Instance functions
@@ -122,7 +125,8 @@ public extension StringAttribute {
              (.TextEffect, .TextEffect),
              (.UnderlineStyle, .UnderlineStyle),
              (.UnderlineColor, .UnderlineColor),
-             (.VerticalGlyphForm, .VerticalGlyphForm):
+             (.VerticalGlyphForm, .VerticalGlyphForm),
+             (.WritingDirection, .WritingDirection):
             return true
         default:
             return false
@@ -192,6 +196,8 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
         return value1 == value2
     case (.VerticalGlyphForm(let value1), .VerticalGlyphForm(let value2)):
         return value1 == value2
+    case (.WritingDirection(let value1), .WritingDirection(let value2)):
+        return value1 == value2
     default:
         return false
     }
@@ -243,6 +249,14 @@ extension StringAttribute: Hashable {
             return value.hashValue
         case .VerticalGlyphForm(let value):
             return value.hashValue
+        case .WritingDirection(let value):
+            var hashValue = 0
+            
+            for number in value {
+                hashValue = hashValue ^ number.hashValue
+            }
+            
+            return hashValue
         }
     }
     

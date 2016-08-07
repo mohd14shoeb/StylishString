@@ -78,6 +78,8 @@ public struct DefaultStringAttributeAdapter: StringAttributeAdapter {
             return NSUnderlineColorAttributeName
         case .VerticalGlyphForm:
             return NSVerticalGlyphFormAttributeName
+        case .WritingDirection:
+            return NSWritingDirectionAttributeName
         }
     }
     
@@ -122,6 +124,8 @@ public struct DefaultStringAttributeAdapter: StringAttributeAdapter {
         case .UnderlineColor(let value):
             return value
         case .VerticalGlyphForm(let value):
+            return value
+        case .WritingDirection(let value):
             return value
         }
     }
