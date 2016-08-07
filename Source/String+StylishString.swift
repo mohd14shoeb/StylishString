@@ -49,7 +49,7 @@ extension String {
      - returns: True when string has content before range, false otherwise.
      */
     internal func hasContent(before range: NSRange) -> Bool {
-        return !range.doesStartFirstLocation()
+        return !range.doesStartAtFirstLocation()
     }
     
     /**

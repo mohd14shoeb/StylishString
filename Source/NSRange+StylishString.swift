@@ -70,7 +70,7 @@ extension NSRange {
      
      - returns: Whether the current range starts at the first location.
      */
-    internal func doesStartFirstLocation() -> Bool {
+    internal func doesStartAtFirstLocation() -> Bool {
         return location == 0
     }
     
