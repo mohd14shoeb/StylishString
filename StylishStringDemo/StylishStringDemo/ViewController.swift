@@ -42,25 +42,38 @@ class ViewController: UIViewController {
         
         // Attributes created via chaining
         
-        let attributes = StringAttributes()
+        let baseAttributes = StringAttributes()
             .color(red: 0.0, green: 0.5, blue: 0.5, alpha: 1.0)
             .font(name: "AvenirNext-Bold", size: 40)
             .kern(value: 2)
         
-        let substringAttributes = attributes
+        topLabel.styleText("Hello World", attributes: baseAttributes)
+        
+        print(baseAttributes.toDictionary())
+        
+        // Attributes created from other attributes
+        
+        let substringAttributes = baseAttributes
             .update(with: .Color(value: UIColor.magentaColor()))
         
-        topLabel.styleText("Hello World", attributes: attributes)
         topLabel.styleSubstring("Hello", attributes: substringAttributes)
-        
-        print(attributes.toDictionary())
         
         // Attributes created in-line
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.alignment = .Center
+        
         bottomLabel.styleText("Goobye World") {[
+            .BackgroundColor(value: UIColor.orangeColor()),
             .Color(value: UIColor.redColor()),
             .Font(value: UIFont.systemFontOfSize(30)),
-            .Kern(value: 15)
+            .Kern(value: 15),
+            .ParagraphStyle(value: paragraphStyle),
+            .StrikethroughColor(value: UIColor.yellowColor()),
+            .StrikethroughStyle(value: NSNumber(integer: 1)),
+            .UnderlineColor(value: UIColor.cyanColor()),
+            .UnderlineStyle(value: NSNumber(integer: 3))
         ]}
         
     }
