@@ -18,9 +18,7 @@
   },
   "platforms": {
     "ios": "8.0",
-    "osx": "10.9",
-    "tvos": "9.0",
-    "watchos": "2.0"
+    "tvos": "9.0"
   },
   "requires_arc": true,
   "source_files": "Source/*.{swift}"

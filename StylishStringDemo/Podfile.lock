@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StylishString: 264e510ee82a08509d6790c8eb3cb25f7c769423
+  StylishString: 0013a796727e4b3e22d900e1c0960d5a5fee23f0
 
 COCOAPODS: 0.39.0
