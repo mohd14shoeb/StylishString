@@ -112,6 +112,19 @@ extension StringAttributes {
         return backgroundColor(value: color)
     }
     
+    // MARK: - Baseline Offset
+    
+    /**
+     Returns a new instance with provided baseline offset attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func baselineOffset(value value: NSNumber) -> StringAttributes {
+        return update(with: .BaselineOffset(value: value))
+    }
+    
     // MARK: - Color
     
     /**
@@ -182,6 +195,19 @@ extension StringAttributes {
         let newColor = UIColor(patternImage: patternImage)
         
         return color(value: newColor)
+    }
+    
+    // MARK: - Expansion
+    
+    /**
+     Returns a new instance with provided expansion attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func expansion(value value: NSNumber) -> StringAttributes {
+        return update(with: .Expansion(value: value))
     }
     
     // MARK: - Font
@@ -301,6 +327,19 @@ extension StringAttributes {
         }
         
         return link(value: url)
+    }
+    
+    // MARK: - Obliqueness
+    
+    /**
+     Returns a new instance with provided obliqueness attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func obliqueness(value value: NSNumber) -> StringAttributes {
+        return update(with: .Obliqueness(value: value))
     }
     
     // MARK: - Paragraph Style
@@ -531,19 +570,6 @@ extension StringAttributes {
         return update(with: .TextEffect(value: value))
     }
     
-    // MARK: - Underline Style
-    
-    /**
-     Returns a new instance with provided underline style attribute.
-     
-     - parameter value: Style.
-     
-     - returns: New instance.
-     */
-    public func underlineStyle(value value: NSNumber) -> StringAttributes {
-        return update(with: .UnderlineStyle(value: value))
-    }
-    
     // MARK: - Underline Color
     
     /**
@@ -614,6 +640,32 @@ extension StringAttributes {
         let color = UIColor(patternImage: patternImage)
         
         return underlineColor(value: color)
+    }
+    
+    // MARK: - Underline Style
+    
+    /**
+     Returns a new instance with provided underline style attribute.
+     
+     - parameter value: Style.
+     
+     - returns: New instance.
+     */
+    public func underlineStyle(value value: NSNumber) -> StringAttributes {
+        return update(with: .UnderlineStyle(value: value))
+    }
+    
+    // MARK: - Vertical Glyph Form
+    
+    /**
+     Returns a new instance with provided vertical glyph form attribute.
+     
+     - parameter value: Number.
+     
+     - returns: New instance.
+     */
+    public func verticalGlyphForm(value value: NSNumber) -> StringAttributes {
+        return update(with: .VerticalGlyphForm(value: value))
     }
     
 }

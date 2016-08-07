@@ -34,8 +34,14 @@ public enum StringAttribute {
     /// Background color.
     case BackgroundColor(value: UIColor)
     
+    /// Baseline offset.
+    case BaselineOffset(value: NSNumber)
+    
     /// Color.
     case Color(value: UIColor)
+    
+    /// Expansion.
+    case Expansion(value: NSNumber)
     
     /// Font.
     case Font(value: UIFont)
@@ -48,6 +54,9 @@ public enum StringAttribute {
     
     /// Link.
     case Link(value: NSURL)
+    
+    /// Obliqueness.
+    case Obliqueness(value: NSNumber)
     
     /// Paragraph style.
     case ParagraphStyle(value: NSParagraphStyle)
@@ -76,6 +85,9 @@ public enum StringAttribute {
     /// Underline color.
     case UnderlineColor(value: UIColor)
     
+    /// Vertical glyph form.
+    case VerticalGlyphForm(value: NSNumber)
+    
 }
 
 // MARK: - Instance functions
@@ -93,11 +105,14 @@ extension StringAttribute {
         switch (self, other) {
         case (.Attachment, .Attachment),
              (.BackgroundColor, .BackgroundColor),
+             (.BaselineOffset, .BaselineOffset),
              (.Color, .Color),
+             (.Expansion, .Expansion),
              (.Font, Font),
              (.Kern, .Kern),
              (.Ligature, .Ligature),
              (.Link, .Link),
+             (.Obliqueness, .Obliqueness),
              (.ParagraphStyle, .ParagraphStyle),
              (.Shadow, .Shadow),
              (.StrikethroughColor, .StrikethroughColor),
@@ -106,7 +121,8 @@ extension StringAttribute {
              (.StrokeWidth, .StrokeWidth),
              (.TextEffect, .TextEffect),
              (.UnderlineStyle, .UnderlineStyle),
-             (.UnderlineColor, .UnderlineColor):
+             (.UnderlineColor, .UnderlineColor),
+             (.VerticalGlyphForm, .VerticalGlyphForm):
             return true
         default:
             return false
@@ -140,7 +156,11 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
         return value1 == value2
     case (.BackgroundColor(let value1), .BackgroundColor(let value2)):
         return value1 == value2
+    case (.BaselineOffset(let value1), .BaselineOffset(let value2)):
+        return value1 == value2
     case (.Color(let value1), .Color(let value2)):
+        return value1 == value2
+    case (.Expansion(let value1), .Expansion(let value2)):
         return value1 == value2
     case (.Font(let value1), .Font(let value2)):
         return value1 == value2
@@ -149,6 +169,8 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
     case (.Ligature(let value1), .Ligature(let value2)):
         return value1 == value2
     case (.Link(let value1), .Link(let value2)):
+        return value1 == value2
+    case (.Obliqueness(let value1), .Obliqueness(let value2)):
         return value1 == value2
     case (.ParagraphStyle(let value1), .ParagraphStyle(let value2)):
         return value1 == value2
@@ -168,6 +190,8 @@ public func ==(lhs: StringAttribute, rhs: StringAttribute) -> Bool {
         return value1 == value2
     case (.UnderlineColor(let value1), .UnderlineColor(let value2)):
         return value1 == value2
+    case (.VerticalGlyphForm(let value1), .VerticalGlyphForm(let value2)):
+        return value1 == value2
     default:
         return false
     }
@@ -183,7 +207,11 @@ extension StringAttribute: Hashable {
             return value.hashValue
         case .BackgroundColor(let value):
             return value.hashValue
+        case .BaselineOffset(let value):
+            return value.hashValue
         case .Color(let value):
+            return value.hashValue
+        case .Expansion(let value):
             return value.hashValue
         case .Font(let value):
             return value.hashValue
@@ -192,6 +220,8 @@ extension StringAttribute: Hashable {
         case .Ligature(let value):
             return value.hashValue
         case .Link(let value):
+            return value.hashValue
+        case .Obliqueness(let value):
             return value.hashValue
         case .ParagraphStyle(let value):
             return value.hashValue
@@ -210,6 +240,8 @@ extension StringAttribute: Hashable {
         case .UnderlineStyle(let value):
             return value.hashValue
         case .UnderlineColor(let value):
+            return value.hashValue
+        case .VerticalGlyphForm(let value):
             return value.hashValue
         }
     }

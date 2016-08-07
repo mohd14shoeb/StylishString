@@ -77,8 +77,12 @@ extension StringAttributeAdapter {
             return NSAttachmentAttributeName
         case .BackgroundColor:
             return NSBackgroundColorAttributeName
+        case .BaselineOffset:
+            return NSBaselineOffsetAttributeName
         case .Color:
             return NSForegroundColorAttributeName
+        case .Expansion:
+            return NSExpansionAttributeName
         case .Font:
             return NSFontAttributeName
         case .Kern:
@@ -87,6 +91,8 @@ extension StringAttributeAdapter {
             return NSLigatureAttributeName
         case .Link:
             return NSLinkAttributeName
+        case .Obliqueness:
+            return NSObliquenessAttributeName
         case .ParagraphStyle:
             return NSParagraphStyleAttributeName
         case .Shadow:
@@ -105,6 +111,8 @@ extension StringAttributeAdapter {
             return NSUnderlineStyleAttributeName
         case .UnderlineColor:
             return NSUnderlineColorAttributeName
+        case .VerticalGlyphForm:
+            return NSVerticalGlyphFormAttributeName
         }
     }
     
@@ -114,7 +122,11 @@ extension StringAttributeAdapter {
             return value
         case .BackgroundColor(let value):
             return value
+        case .BaselineOffset(let value):
+            return value
         case .Color(let value):
+            return value
+        case .Expansion(let value):
             return value
         case .Font(let value):
             return value
@@ -123,6 +135,8 @@ extension StringAttributeAdapter {
         case .Ligature(let value):
             return value
         case .Link(let value):
+            return value
+        case .Obliqueness(let value):
             return value
         case .ParagraphStyle(let value):
             return value
@@ -141,6 +155,8 @@ extension StringAttributeAdapter {
         case .UnderlineStyle(let value):
             return value
         case .UnderlineColor(let value):
+            return value
+        case .VerticalGlyphForm(let value):
             return value
         }
     }
